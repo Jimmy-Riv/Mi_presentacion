@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentación Profesional</title>
+    <title>Tarjeta de Presentación Digital - Jimmy Rivera</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #f8fafc;
+            --bg-color: #090d16;
+            --card-bg: #111827;
+            --text-color: #f3f4f6;
             --accent-color: #38bdf8;
-            --text-secondary: #94a3b8;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+            --text-secondary: #9ca3af;
+            --block-bg: #1f2937;
         }
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -26,94 +29,195 @@
         }
         .card {
             background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            max-width: 450px;
+            padding: 35px 25px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            max-width: 400px;
             width: 100%;
             text-align: center;
-            border: 1px solid #334155;
+            border: 1px solid #374151;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Efecto de luz superior */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+        /* Contenedor e imagen del Logo CIP */
+        .logo-cip-container {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        .logo-cip {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 1px solid #374151;
+            background-color: #fff;
+            padding: 2px;
         }
         .avatar {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            width: 95px;
+            height: 95px;
+            background: var(--accent-gradient);
             color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 36px;
-            font-weight: bold;
-            margin: 0 auto 20px;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 10px auto 15px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
         }
         h1 {
             font-size: 24px;
-            margin: 10px 0;
-            color: var(--text-color);
+            margin: 5px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         .title {
             color: var(--accent-color);
             font-weight: 600;
-            margin-bottom: 20px;
-            font-size: 16px;
+            margin-bottom: 25px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
         .info-block {
             text-align: left;
-            background: #111827;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            background: var(--block-bg);
+            padding: 14px 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
             border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
-        .info-block strong {
+        .info-block:hover {
+            transform: translateY(-2px);
+            background: #2563eb10;
+        }
+        .info-block i {
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-top: 2px;
+        }
+        .info-text strong {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
         }
-        .info-block p {
+        .info-text p {
             margin: 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .cta-container {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 600;
             font-size: 15px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid #4b5563;
+        }
+        .btn-secondary:hover {
+            background: #1f2937;
+            border-color: var(--text-secondary);
         }
         .footer {
             margin-top: 25px;
-            font-size: 13px;
+            font-size: 11px;
             color: var(--text-secondary);
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
     <div class="card">
+        <!-- CORREGIDO: Apunta exactamente a tu archivo local de la carpeta -->
+        <div class="logo-cip-container">
+            <img src="logo-cip.jpg" alt="Logo CIP" class="logo-cip">
+        </div>
+
         <div class="avatar">JR</div>
         <h1>Jimmy Jhon Rivera Ramirez</h1>
-        <div class="title">Ingeniero Quimico especialista en Mantenimiento & Estudiante de Ingenieria de Software</div>
+        <div class="title">Ing. Quimico - Especialista en Mantenimiento & Dev. de Software</div>
         
         <div class="info-block">
-            <strong>Especialidad Técnica</strong>
-            <p>Equipos médicos y sistemas hidráulicos de alta complejidad.</p>
+            <i class='bx bx-wrench'></i>
+            <div class="info-text">
+                <strong>Ingeniería Clínica</strong>
+                <p>Especialista en mantenimiento de sistemas médicos e hidráulicos complejos.</p>
+            </div>
         </div>
 
         <div class="info-block">
-            <strong>Especialidad de Software</strong>
-            <p>Arquitectura de software y desarrollo de soluciones tecnológicas.</p>
+            <i class='bx bx-code-alt'></i>
+            <div class="info-text">
+                <strong>Tecnología & Software</strong>
+                <p>Diseño de arquitectura de software y desarrollo de soluciones técnicas eficientes.</p>
+            </div>
         </div>
 
         <div class="info-block">
-            <strong>Contacto Directo</strong>
-            <p>jimmyriv2093@gmail.com</p>
+            <i class='bx bx-envelope'></i>
+            <div class="info-text">
+                <strong>Contacto</strong>
+                <p>jimmyriv2093@gmail.com</p>
+            </div>
         </div>
 
-         <div class="info-block">
-            <strong>Celular</strong>
-            <p>931017167</p>
+        <div class="cta-container">
+            <a href="https://wa.me/51931017167?text=Hola%20Jimmy,%20vi%20tu%20tarjeta%20digital." class="btn btn-primary" target="_blank">
+                <i class='bx bxl-whatsapp'></i> Contactar por WhatsApp
+            </a>
+            <a href="https://github.com/jimmy-riv" class="btn btn-secondary" target="_blank">
+                <i class='bx bxl-github'></i> Ver Mi Portafolio
+            </a>
         </div>
 
         <div class="footer">
-            Tarjeta de Presentación Digital
+            TARJETA DIGITAL INTERACTIVA v2.0
         </div>
     </div>
 
